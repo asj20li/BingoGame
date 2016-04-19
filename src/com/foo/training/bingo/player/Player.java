@@ -1,6 +1,6 @@
-package com.wingdev.training.bingo.player;
+package com.foo.training.bingo.player;
 
-import com.wingdev.training.bingo.base.BaseBingoPlayer;
+import com.foo.training.bingo.base.BaseBingoPlayer;
 
 public class Player extends BaseBingoPlayer {
 
@@ -15,7 +15,7 @@ public class Player extends BaseBingoPlayer {
 
 	@Override
 	public void shoutBingo() {
-		System.out.println("Bi, Bi, BINGOOOOO!!!!!");
+		System.out.println("YEAH, BINGO!!");
 	}
 
 }

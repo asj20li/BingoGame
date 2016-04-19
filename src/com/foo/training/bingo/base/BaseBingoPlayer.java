@@ -1,4 +1,4 @@
-package com.wingdev.training.bingo.base;
+package com.foo.training.bingo.base;
 
 /**
  * Bingoプレイヤー基底クラス
@@ -7,12 +7,9 @@ package com.wingdev.training.bingo.base;
  */
 public abstract class BaseBingoPlayer{
 
-	/**
-	 * カード(1次元が行、2次元が列)
-	 * 左上が[0][0], 右下が[bSize - 1][bSize - 1]
-	 */
 	protected String[][] myCard;
 	protected String myName = "";
+	protected boolean isReached = false;
 
 	/**
 	 * デフォルトコンストラクタ
@@ -34,7 +31,7 @@ public abstract class BaseBingoPlayer{
 	 * 数値が 1 桁だった場合は半角空白を 10 の位に設定して表示します。
 	 */
 	public void showMyCard() {
-		System.out.println("--- " + myName + " ---");
+		System.out.println("----- " + myName + " -----");
 		for (int i = 0; i < BingoConstant.matrixSize; i++) {
 			for (int j = 0; j < BingoConstant.matrixSize; j++) {
 				String val = myCard[i][j].length() == 1 ? " " + myCard[i][j] : myCard[i][j];
@@ -46,7 +43,7 @@ public abstract class BaseBingoPlayer{
 	}
 
 	/**
-	 * Bingo だった場合に叫びます。
+	 * Bingo の場合に叫びます。
 	 * @return
 	 */
 	public abstract void shoutBingo();
@@ -59,6 +56,8 @@ public abstract class BaseBingoPlayer{
 	/**
 	 * Bingo か否かを判別します。
 	 * Bingo だった場合は叫びます。
+	 * Bingo では無かった場合にリーチか否かを判別しリーチの場合は叫びます。
+	 * リーチを 1 度叫んだ後は、Bingo になるまで叫びません。
 	 * @param ballVal
 	 * @return
 	 */
@@ -68,22 +67,28 @@ public abstract class BaseBingoPlayer{
 		if (result) {
 			shoutBingo();
 		}
-		result = false;
-		result = isReachVertical() || isReachHorizontal() || isReachOblique();
-		if (result) {
-			shoutReach();
+		if (!result && !isReached) {
+			isReached = isReachVertical() || isReachHorizontal() || isReachOblique();
+			if (isReached) {
+				shoutReach();
+			}
 		}
 		return result;
 	}
 
-	// --- getter, setter ---
+	// --- getter ---
 	public String getMyName() {
 		return myName;
 	}
 
+	public String[][] getMyCard() {
+		return myCard;
+	}
+
 	// --- private ---
 	/**
-	 * ボールの値と一致した要素を BingoConstant.done で置き換えます。
+	 * カード内の各要素とボールの値を比較して
+	 * 一致した要素を BingoConstant.done で置き換えます。
 	 * @param ballVal
 	 */
 	private void replaceDone(String ballVal) {
@@ -97,7 +102,7 @@ public abstract class BaseBingoPlayer{
 	}
 
 	/**
-	 * 縦の要素が全て done か否かを判別します。
+	 * 縦の要素が全て BingoConstant.done か否かを判別します。
 	 * @return
 	 */
 	private boolean isBingoVertical() {
@@ -134,12 +139,12 @@ public abstract class BaseBingoPlayer{
 	}
 
 	/**
-	 * 横の要素が全て done か否かを判別します。
+	 * 横の要素が全て BingoConstant.done か否かを判別します。
 	 * @return
 	 */
 	private boolean isBingoHorizontal() {
-		boolean result = true;
 		for (int i = 0; i < BingoConstant.matrixSize; i++) {
+			boolean result = true;
 			for (int j = 0; j < BingoConstant.matrixSize; j++) {
 				result = result && myCard[i][j].equals(BingoConstant.done);
 				if (!result) {
@@ -171,7 +176,8 @@ public abstract class BaseBingoPlayer{
 	}
 
 	/**
-	 * ナナメの要素が全て done か否かを判別します。
+	 * ナナメの要素が全て BingoConstant.done か否かを判別します。
+	 * 左上から右下、右上から左下の 2 通りを調べます。
 	 * @return
 	 */
 	private boolean isBingoOblique() {
@@ -200,6 +206,7 @@ public abstract class BaseBingoPlayer{
 
 	/**
 	 * ナナメの要素が Reach か否かを判別します。
+	 * 左上から右下、右上から左下の 2 通りを調べます。
 	 * @return
 	 */
 	private boolean isReachOblique() {
