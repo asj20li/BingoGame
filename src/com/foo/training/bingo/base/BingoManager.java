@@ -9,15 +9,26 @@ public interface BingoManager {
 	public String askPlayerName();
 
 	/**
-	 * 引数で与えられた名前を持つ Player を生成して保存します。
-	 * @param playerName
+	 * 引数で与えられた名前を持つ Player を生成します。
+	 * @param playerName プレイヤー名
+	 * @return 生成した Player クラス
 	 */
-	public void addPlayer(String playerName);
+	public BaseBingoPlayer addPlayer(String playerName);
 
 	/**
-	 * 特定の文字が入力されるまで待機します。
+	 * 引数で与えられた名前を持つ Player を追加します。
+	 * @param bingoPlayer
+	 * @return 追加に成功した場合は true, それ以外は false
 	 */
-	public void waitGameProgress();
+	public boolean addPlayer(BaseBingoPlayer bingoPlayer);
+
+	/**
+	 * 引数で与えられた名前を持つ Player を取得します。
+	 * @param playerName
+	 * @return
+	 */
+	public BaseBingoPlayer getPlayer(String playerName);
+
 	/**
 	 * ゲームを進めます。
 	 * @return

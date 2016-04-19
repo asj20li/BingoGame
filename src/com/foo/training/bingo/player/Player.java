@@ -15,7 +15,7 @@ public class Player extends BaseBingoPlayer {
 
 	@Override
 	public void shoutBingo() {
-		System.out.println("Bi, Bi, BINGOOOOO!!!!!");
+		System.out.println("YEAH, BINGO!!");
 	}
 
 }

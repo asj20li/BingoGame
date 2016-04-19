@@ -13,7 +13,6 @@ import java.util.List;
 public class BingoBall {
 	// private変数 ----------------------------------------
 	private List<String> ballList = new ArrayList<String>();
-	private List<String> firstTenBallList = new ArrayList<String>();
 	// ----------------------------------------------------
 
 	// コンストラクタ
@@ -25,22 +24,6 @@ public class BingoBall {
 	}
 
 	// publicメソッド -------------------------------------
-	/**
-	 * 第1ゲーム開始前に10玉を排出するためのメソッド
-	 * @return firstFiveBallList
-	 */
-	public List<String> getFirstTenBall() {
-		int count = 0;
-		// 最初の10玉をballListより設定
-		// ballListの先頭の要素を取得し、その要素を削除する
-		do {
-			this.firstTenBallList.add(this.ballList.get(0));
-			this.ballList.remove(0);
-			count++;
-		} while(count < 10);
-		return this.firstTenBallList;
-	}
-
 	/**
 	 * 第1ゲーム以降のボール排出メソッド
 	 * @return

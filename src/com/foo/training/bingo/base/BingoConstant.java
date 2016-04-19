@@ -13,6 +13,11 @@ public final class BingoConstant {
 	public static final int matrixSize = 5;
 
 	/**
+	 * 事前ゲーム実施回数
+	 */
+	public static final int preGameCount = 10;
+
+	/**
 	 * ゲーム回数
 	 */
 	public static final int gameCount = 10;
