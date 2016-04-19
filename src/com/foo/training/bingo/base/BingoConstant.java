@@ -8,7 +8,12 @@ public final class BingoConstant {
 	public static final String done = "xx";
 
 	/**
-	 * サイズ
+	 * カード要素のサイズ
 	 */
 	public static final int matrixSize = 5;
+
+	/**
+	 * ゲーム回数
+	 */
+	public static final int gameCount = 10;
 }

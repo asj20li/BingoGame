@@ -5,7 +5,8 @@ import static org.hamcrest.MatcherAssert.*;
 
 import org.junit.Test;
 
-import com.wingdev.training.bingo.player.Manager;
+import com.foo.training.bingo.player.Manager;
+
 
 public class ManagerTest {
 

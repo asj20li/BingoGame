@@ -1,6 +1,6 @@
 package com.foo.training.bingo.main;
 
-import com.wingdev.training.bingo.player.Manager;
+import com.foo.training.bingo.player.Manager;
 
 public class BGame {
 

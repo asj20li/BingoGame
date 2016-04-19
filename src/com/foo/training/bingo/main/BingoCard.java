@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.wingdev.training.bingo.base.BingoConstant;
+import com.foo.training.bingo.base.BingoConstant;
+
 
 /**
  * ビンゴカードクラス

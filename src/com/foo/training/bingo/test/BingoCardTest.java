@@ -36,7 +36,7 @@ public class BingoCardTest {
 	}
 
 	/**
-	 * [0][0], [1][1]
+	 * [0][0], [1][1], [2][2], [3][3], [4][4]
 	 * @return
 	 */
 	public static String[][] getObliqueReachCard1() {

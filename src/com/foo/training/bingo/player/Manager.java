@@ -5,10 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import com.wingdev.training.bingo.base.BaseBingoPlayer;
-import com.wingdev.training.bingo.base.BingoManager;
-import com.wingdev.training.bingo.main.BingoBall;
-import com.wingdev.training.bingo.main.BingoCard;
+import com.foo.training.bingo.base.BaseBingoPlayer;
+import com.foo.training.bingo.base.BingoManager;
+import com.foo.training.bingo.main.BingoBall;
+import com.foo.training.bingo.main.BingoCard;
+
 
 /**
  * ゲームマネージャクラス

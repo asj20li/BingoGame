@@ -1,6 +1,6 @@
 package com.foo.training.bingo.player;
 
-import com.wingdev.training.bingo.base.BaseBingoPlayer;
+import com.foo.training.bingo.base.BaseBingoPlayer;
 
 public class Player extends BaseBingoPlayer {
 
