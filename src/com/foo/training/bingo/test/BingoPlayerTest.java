@@ -30,6 +30,15 @@ public class BingoPlayerTest extends BaseBingoPlayerTest {
 	}
 
 	/**
+	 * カードが null ではないことをテストします。
+	 */
+	@Test
+	public void testCard() {
+		Player player = new Player("test", TestValue.getEmptyCard());
+		assertThat(player.getMyCard(), notNullValue());
+	}
+
+	/**
 	 * リーチ時の叫び声が正しく出力されるかテストします。
 	 */
 	@Test
