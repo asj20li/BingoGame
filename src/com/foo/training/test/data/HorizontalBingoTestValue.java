@@ -1,9 +1,14 @@
-package com.foo.training.bingo.test.data;
+package com.foo.training.test.data;
 
-public class HorizontalReachTestValue {
+/**
+ * 水平 Bingo テスト用データクラス
+ * @author
+ *
+ */
+public class HorizontalBingoTestValue {
 	public static String[][] getCard1() {
 		String[][] test = {
-				{"xx","xx","xx","xx"," 5"},
+				{"xx","xx","xx","xx","xx"},
 				{"","","","",""},
 				{"","","","",""},
 				{"","","","",""},
@@ -15,7 +20,7 @@ public class HorizontalReachTestValue {
 	public static String[][] getCard2() {
 		String[][] test = {
 				{"","","","",""},
-				{"xx","xx","xx","xx"," 5"},
+				{"xx","xx","xx","xx","xx"},
 				{"","","","",""},
 				{"","","","",""},
 				{"","","","",""}
@@ -27,7 +32,7 @@ public class HorizontalReachTestValue {
 		String[][] test = {
 				{"","","","",""},
 				{"","","","",""},
-				{"xx","xx","xx","xx"," 5"},
+				{"xx","xx","xx","xx","xx"},
 				{"","","","",""},
 				{"","","","",""}
 		};
@@ -39,7 +44,7 @@ public class HorizontalReachTestValue {
 				{"","","","",""},
 				{"","","","",""},
 				{"","","","",""},
-				{"xx","xx","xx","xx"," 5"},
+				{"xx","xx","xx","xx","xx"},
 				{"","","","",""}
 		};
 		return test;
@@ -51,9 +56,8 @@ public class HorizontalReachTestValue {
 				{"","","","",""},
 				{"","","","",""},
 				{"","","","",""},
-				{"xx","xx","xx","xx"," 5"}
+				{"xx","xx","xx","xx","xx"}
 		};
 		return test;
 	}
-
 }

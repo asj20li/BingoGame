@@ -1,9 +1,15 @@
-package com.foo.training.bingo.test.data;
+package com.foo.training.test.data;
 
-public class HorizontalBingoTestValue {
+/**
+ * 水平リーチテスト用データクラス
+ * TODO テストデータが不足しています。不足分を補ってください。
+ * @author
+ *
+ */
+public class HorizontalReachTestValue {
 	public static String[][] getCard1() {
 		String[][] test = {
-				{"xx","xx","xx","xx","xx"},
+				{"xx","xx","xx","xx"," 5"},
 				{"","","","",""},
 				{"","","","",""},
 				{"","","","",""},
@@ -15,7 +21,7 @@ public class HorizontalBingoTestValue {
 	public static String[][] getCard2() {
 		String[][] test = {
 				{"","","","",""},
-				{"xx","xx","xx","xx","xx"},
+				{"xx","xx","xx","xx"," 5"},
 				{"","","","",""},
 				{"","","","",""},
 				{"","","","",""}
@@ -27,7 +33,7 @@ public class HorizontalBingoTestValue {
 		String[][] test = {
 				{"","","","",""},
 				{"","","","",""},
-				{"xx","xx","xx","xx","xx"},
+				{"xx","xx","xx","xx"," 5"},
 				{"","","","",""},
 				{"","","","",""}
 		};
@@ -39,7 +45,7 @@ public class HorizontalBingoTestValue {
 				{"","","","",""},
 				{"","","","",""},
 				{"","","","",""},
-				{"xx","xx","xx","xx","xx"},
+				{"xx","xx","xx","xx"," 5"},
 				{"","","","",""}
 		};
 		return test;
@@ -51,8 +57,9 @@ public class HorizontalBingoTestValue {
 				{"","","","",""},
 				{"","","","",""},
 				{"","","","",""},
-				{"xx","xx","xx","xx","xx"}
+				{"xx","xx","xx","xx"," 5"}
 		};
 		return test;
 	}
+
 }

@@ -1,4 +1,4 @@
-package com.foo.training.bingo.test.base;
+package com.foo.training.test.base;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -6,6 +6,11 @@ import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
 
+/**
+ * BingoPlayer 用テスト基底クラス
+ * @author
+ *
+ */
 public abstract class BaseBingoPlayerTest {
 	/**
 	 * TODO

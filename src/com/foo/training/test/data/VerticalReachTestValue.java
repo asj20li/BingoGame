@@ -1,6 +1,12 @@
-package com.foo.training.bingo.test.data;
+package com.foo.training.test.data;
 
-public class VerticalBingoTestValue {
+/**
+ * 垂直リーチテスト用データクラス
+ * TODO テストデータが不足しています。不足分を補ってください。
+ * @author
+ *
+ */
+public class VerticalReachTestValue {
 
 	public static String[][] getCard1() {
 		String[][] test = {
@@ -8,7 +14,7 @@ public class VerticalBingoTestValue {
 				{"xx","","","",""},
 				{"xx","","","",""},
 				{"xx","","","",""},
-				{"xx","","","",""}
+				{"99","","","",""}
 		};
 		return test;
 	}
@@ -19,7 +25,7 @@ public class VerticalBingoTestValue {
 				{"","xx","","",""},
 				{"","xx","","",""},
 				{"","xx","","",""},
-				{"","xx","","",""}
+				{"","99","","",""}
 		};
 		return test;
 	}
@@ -30,7 +36,7 @@ public class VerticalBingoTestValue {
 				{"","","xx","",""},
 				{"","","xx","",""},
 				{"","","xx","",""},
-				{"","","xx","",""}
+				{"","","99","",""}
 		};
 		return test;
 	}
@@ -41,7 +47,7 @@ public class VerticalBingoTestValue {
 				{"","","","xx",""},
 				{"","","","xx",""},
 				{"","","","xx",""},
-				{"","","","xx",""}
+				{"","","","99",""}
 		};
 		return test;
 	}
@@ -52,7 +58,7 @@ public class VerticalBingoTestValue {
 				{"","","","","xx"},
 				{"","","","","xx"},
 				{"","","","","xx"},
-				{"","","","","xx"}
+				{"","","","","99"}
 		};
 		return test;
 	}

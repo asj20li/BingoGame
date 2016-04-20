@@ -1,4 +1,4 @@
-package com.foo.training.bingo.test;
+package com.foo.training.test;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -9,11 +9,13 @@ import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 
 import com.foo.training.bingo.player.Player;
-import com.foo.training.bingo.test.base.BaseBingoPlayerTest;
-import com.foo.training.bingo.test.data.HorizontalBingoTestValue;
+import com.foo.training.test.base.BaseBingoPlayerTest;
+import com.foo.training.test.data.HorizontalBingoTestValue;
+
 
 /**
  * BaseBingoPlayer のテストクラス
+ * 水平 Bingo が正しく判別されることを確認します。
  * @author
  *
  */

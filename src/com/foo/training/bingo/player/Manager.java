@@ -7,14 +7,15 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import com.foo.training.bingo.base.BaseBingoPlayer;
-import com.foo.training.bingo.base.BingoConstant;
 import com.foo.training.bingo.base.BingoManager;
-import com.foo.training.bingo.main.BingoBall;
-import com.foo.training.bingo.main.BingoCard;
+import com.foo.training.bingo.util.BingoBall;
+import com.foo.training.bingo.util.BingoCard;
+import com.foo.training.bingo.util.BingoConstant;
 
 
 /**
  * ゲームマネージャクラス
+ * BingoManager インタフェイスの実装クラス
  * @author
  *
  */
@@ -119,7 +120,7 @@ public class Manager extends BaseBingoPlayer implements BingoManager {
 
 	// --- private ---
 	/**
-	 * コンソール入力された文字列を取得します。
+	 * コンソールに入力された文字列を取得します。
 	 * @return
 	 * @throws IOException
 	 */
@@ -131,7 +132,8 @@ public class Manager extends BaseBingoPlayer implements BingoManager {
 	}
 
 	/**
-	 * y キーが入力されるまで待機します。
+	 * コンソールで y キーが入力されるまで待機します。
+	 * 例外が発生した場合は、再度入力を促してください。
 	 */
 	private void waitGameProgress() {
 		System.out.println("y キーを入力してゲームを進めてください。");
@@ -167,7 +169,7 @@ public class Manager extends BaseBingoPlayer implements BingoManager {
 			System.out.println("[" + (count + 1) + "] 回目のボール取り出しです。");
 			// ボールマシンを回して数字文字列を取得します
 			String ballVal = ballMachine.getBall();
-			System.out.println("出てきた番号は" + ballVal + "となります！");
+			System.out.println("出てきた番号は [" + ballVal + "] となります！");
 			// 全 Player に通知し Bingo か否かチェックします
 			for (BaseBingoPlayer player : playerList) {
 				if (player.judgeBingo(ballVal)) {

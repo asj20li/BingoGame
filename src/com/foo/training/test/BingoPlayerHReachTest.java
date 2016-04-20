@@ -1,4 +1,4 @@
-package com.foo.training.bingo.test;
+package com.foo.training.test;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -9,32 +9,34 @@ import org.junit.experimental.theories.Theory;
 import org.junit.runner.RunWith;
 
 import com.foo.training.bingo.player.Player;
-import com.foo.training.bingo.test.base.BaseBingoPlayerTest;
-import com.foo.training.bingo.test.data.VerticalReachTestValue;
+import com.foo.training.test.base.BaseBingoPlayerTest;
+import com.foo.training.test.data.HorizontalReachTestValue;
+
 
 /**
  * BaseBingoPlayer のテストクラス
+ * 水平リーチが正しく判別されることを確認します。
  * @author
  *
  */
 @RunWith(Theories.class)
-public class BingoPlayerVReachTest extends BaseBingoPlayerTest {
+public class BingoPlayerHReachTest extends BaseBingoPlayerTest {
 
 	@DataPoints
-	public static String[][][] VRVALUES = {
-			VerticalReachTestValue.getCard1(),
-			VerticalReachTestValue.getCard2(),
-			VerticalReachTestValue.getCard3(),
-			VerticalReachTestValue.getCard4(),
-			VerticalReachTestValue.getCard5()
+	public static String[][][] HRVALUES = {
+			HorizontalReachTestValue.getCard1(),
+			HorizontalReachTestValue.getCard2(),
+			HorizontalReachTestValue.getCard3(),
+			HorizontalReachTestValue.getCard4(),
+			HorizontalReachTestValue.getCard5()
 			};
 
 	/**
 	 * 水平でリーチの場合に正しく叫ぶか否かをテストします。
 	 */
 	@Theory
-	public void testHorizontalReachValues(String[][] vrvalue) {
-		Player player = new Player("test", vrvalue);
+	public void testHorizontalReachValues(String[][] hrvalue) {
+		Player player = new Player("test", hrvalue);
 		player.judgeBingo(testBallValue);
 		assertThat(consoleOut.toString(), is(reachShout));
 	}

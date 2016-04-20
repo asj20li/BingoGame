@@ -1,21 +1,17 @@
-package com.foo.training.bingo.main;
+package com.foo.training.bingo.util;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.foo.training.bingo.base.BingoConstant;
-
 
 /**
- * ビンゴボールクラス
+ * ビンゴボールの管理クラス
  * @author todaka
  *
  */
 public class BingoBall {
-	// private変数 ----------------------------------------
 	private List<String> ballList = new ArrayList<String>();
-	// ----------------------------------------------------
 
 	// コンストラクタ
 	public BingoBall() {
@@ -25,9 +21,10 @@ public class BingoBall {
 		Collections.shuffle(this.ballList);
 	}
 
-	// publicメソッド -------------------------------------
 	/**
-	 * 第1ゲーム以降のボール排出メソッド
+	 * ボール取り出しメソッド
+	 * List 内の先頭の要素を取り出します。
+	 * 取り出した後、要素を削除します。
 	 * @return
 	 */
 	public String getBall() {
@@ -35,5 +32,4 @@ public class BingoBall {
 		this.ballList.remove(0);
 		return ball;
 	}
-	// ----------------------------------------------------
 }
