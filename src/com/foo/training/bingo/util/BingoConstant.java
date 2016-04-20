@@ -18,7 +18,7 @@ public final class BingoConstant {
 	public static final int maxBallNumber = 75;
 
 	/**
-	 * カード要素のサイズ
+	 * カード 1 辺に含まれている要素数
 	 */
 	public static final int matrixSize = 5;
 
@@ -28,7 +28,7 @@ public final class BingoConstant {
 	public static final int preGameCount = 10;
 
 	/**
-	 * ゲーム回数
+	 * 手動ゲーム実施回数
 	 */
 	public static final int gameCount = 10;
 }

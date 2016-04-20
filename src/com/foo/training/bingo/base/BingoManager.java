@@ -40,13 +40,13 @@ public interface BingoManager {
 	public BaseBingoPlayer getPlayer(String playerName);
 
 	/**
-	 * ゲームを進めます。
+	 * 事前ゲーム実施回数と手動ゲーム実施回数分だけゲームを進めます。
 	 * @return
 	 */
 	public void progressGame();
 
 	/**
-	 * プレイヤー全員のカードを表示します。
+	 * プレイヤー全員のカードをコンソールに表示します。
 	 */
 	public void showAllPlayerCard();
 

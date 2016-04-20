@@ -54,7 +54,7 @@ public class BingoCard {
 		return cardNum;
 	}
 
-	// privateメソッド -----------------------------------
+	// --- private ---
 	/**
 	 * 引数で指定した範囲内の数字をシャッフルして BingoConstant.matrixSize 個を返します。
 	 * isMiddle が真の場合は、真ん中の要素を BingoConstant.done に設定します。
@@ -64,13 +64,11 @@ public class BingoCard {
 	 * @return
 	 */
 	private static String[] getSuffledNum(int min, int max, boolean isMiddle) {
-		// 数字をリストにadd
 		List<String> cardNoList = new ArrayList<String>();
 		for(int i = min; i <= max; i++) {
 			cardNoList.add(String.valueOf(i));
 		}
 		Collections.shuffle(cardNoList);
-		// 先頭の要素を BingoConstant.matrixSize 個だけ取得する
 		String[] result = new String[BingoConstant.matrixSize];
 		for (int i = 0; i < BingoConstant.matrixSize; i++) {
 			result[i] = cardNoList.get(i);
@@ -80,6 +78,5 @@ public class BingoCard {
 		}
 		return result;
 	}
-	// ---------------------------------------------------
 
 }
