@@ -31,7 +31,11 @@
 演習内容
 ---------------------------------------
 
-* 各パッケージ配下のクラス内で実装が空になっているので埋めてください。
+* 各クラス内で実装が空になっているので、上記の仕様とコメントを手がかりに完成させてください。
+
+* 勝敗がなかなか決まらない場合は、BingoConstant クラスの maxBallNumber の数値をコメントにある範囲内で小さく調整してください。
+
+* 各テストクラス (BingoPlayerxxxxTest.java) を実行して全てのテストが正常に完了することを確認してください。
 
 * テストパッケージ(com.foo.training.test) 内のクラスは、下記の修正を行うだけとしてください。
 
@@ -44,8 +48,8 @@ JUnit テストクラスが配置されています。
 
 * BaseBingoPlayerTest クラスにおいて、com.foo.training.bingo.player パッケージ配下で実装した Player クラスのリーチ、ビンゴ時の叫び声を上書きしてください
 
-* data パッケージ配下の HorizontalReachTestValue, VerticalReachTestValue の各クラスでテストケースのデータが不足しているので、補ってください。
+* data パッケージ配下の HorizontalReachTestValue, VerticalReachTestValue の各クラスでテストケースのデータが不足しています。不足分を補ってテストしてください。
 
 上記 2 点以外のコードは修正しないでください。
 
-各テストクラス (BingoPlayerxxxxTest.java) を実行して全てのテストが正常に完了することを確認してください。
+
