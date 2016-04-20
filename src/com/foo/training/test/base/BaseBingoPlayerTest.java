@@ -1,4 +1,4 @@
-package com.foo.training.bingo.test.base;
+package com.foo.training.test.base;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

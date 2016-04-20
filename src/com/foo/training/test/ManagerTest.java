@@ -1,4 +1,4 @@
-package com.foo.training.bingo.test;
+package com.foo.training.test;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -11,7 +11,7 @@ import org.junit.Test;
 import com.foo.training.bingo.base.BaseBingoPlayer;
 import com.foo.training.bingo.player.Manager;
 import com.foo.training.bingo.player.Player;
-import com.foo.training.bingo.test.data.TestValue;
+import com.foo.training.test.data.TestValue;
 
 /**
  * BingoManager 機能の単体テスト

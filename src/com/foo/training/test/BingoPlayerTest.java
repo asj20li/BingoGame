@@ -1,4 +1,4 @@
-package com.foo.training.bingo.test;
+package com.foo.training.test;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -8,9 +8,10 @@ import org.junit.experimental.theories.Theories;
 import org.junit.runner.RunWith;
 
 import com.foo.training.bingo.player.Player;
-import com.foo.training.bingo.test.base.BaseBingoPlayerTest;
-import com.foo.training.bingo.test.data.ObliqueTestValue;
-import com.foo.training.bingo.test.data.TestValue;
+import com.foo.training.test.base.BaseBingoPlayerTest;
+import com.foo.training.test.data.ObliqueTestValue;
+import com.foo.training.test.data.TestValue;
+
 
 /**
  * BaseBingoPlayer のテストクラス

@@ -1,4 +1,4 @@
-package com.foo.training.bingo.test.data;
+package com.foo.training.test.data;
 
 /**
  * 水平リーチテスト用データクラス
