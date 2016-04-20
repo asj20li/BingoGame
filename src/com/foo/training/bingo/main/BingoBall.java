@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.foo.training.bingo.base.BingoConstant;
+
 
 /**
  * ビンゴボールクラス
@@ -17,7 +19,7 @@ public class BingoBall {
 
 	// コンストラクタ
 	public BingoBall() {
-		for(int i = 0; i < 75; i++)
+		for(int i = 0; i < BingoConstant.maxBallNumber; i++)
 			this.ballList.add(String.valueOf(i + 1));
 		// シャッフル
 		Collections.shuffle(this.ballList);
