@@ -8,6 +8,11 @@ public final class BingoConstant {
 	public static final String done = "xx";
 
 	/**
+	 * ビンゴの玉の最大値
+	 */
+	public static final int maxBallNumber = 75;
+	
+	/**
 	 * カード要素のサイズ
 	 */
 	public static final int matrixSize = 5;

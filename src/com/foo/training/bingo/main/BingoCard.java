@@ -9,11 +9,13 @@ import com.foo.training.bingo.base.BingoConstant;
 
 /**
  * ビンゴカードクラス
- * 1列目：1～15
- * 2列目：16～30
- * 3列目：31～45(FreeSpaceあり）
- * 4列目：46～60
- * 5列目：61～75
+ * 基数(a)：BingoConstant.maxBallNumber / BingoConstant.matrixSize
+ * 1列目：   1 ～ a
+ * 2列目： a+1 ～ 2a
+ * 3列目：2a+1 ～ 3a(FreeSpaceあり）
+ * 4列目：3a+1 ～ 4a
+ * 5列目：4a+1 ～ 5a
+ * n列目：(n-1)a+1 ~ na
  * @author
  *
  */
@@ -22,19 +24,21 @@ public class BingoCard {
 	/**
 	 * ビンゴカードを取得します。
 	 * まず [行][列] で値を決定してください。
-	 * [0][] は  1 ～ 15 のうち任意の BingoConstant.matrixSize 個
-	 * [1][] は 16 ～ 30 のうち任意の BingoConstant.matrixSize 個
-	 * [2][] は 31 ～ 45 のうち任意の BingoConstant.matrixSize 個
-	 * [3][] は 46 ～ 60 のうち任意の BingoConstant.matrixSize 個
-	 * [4][] は 61 ～ 75 のうち任意の BingoConstant.matrixSize 個
+	 * 基数(a)：BingoConstant.maxBallNumber / BingoConstant.matrixSize
+	 * [0][] は    1 ～  a のうち任意の BingoConstant.matrixSize 個
+	 * [1][] は  a+1 ～ 2a のうち任意の BingoConstant.matrixSize 個
+	 * [2][] は 2a+1 ～ 3a のうち任意の BingoConstant.matrixSize 個
+	 * [3][] は 3a+1 ～ 4a のうち任意の BingoConstant.matrixSize 個
+	 * [4][] は 4a+1 ～ 5a のうち任意の BingoConstant.matrixSize 個
 	 * 次に、2 次元配列の行と列を入れ替えてカードを生成します。
 	 * @return
 	 */
 	public static String[][] getCard() {
+		int cardBaseNumber = BingoConstant.maxBallNumber / BingoConstant.matrixSize;
 		String[][] cardNum = new String[BingoConstant.matrixSize][BingoConstant.matrixSize];
 		for (int i = 1; i <= BingoConstant.matrixSize; i++) {
-			int min = 1 + (i - 1) * 15;
-			int max = 15 * i;
+			int min = 1 + (i - 1) * cardBaseNumber;
+			int max = cardBaseNumber * i;
 			boolean isMiddle = (i == (BingoConstant.matrixSize / 2 + 1)) ? true : false;
 			String[] result = getSuffledNum(min, max, isMiddle);
 			cardNum[i - 1] = result;
