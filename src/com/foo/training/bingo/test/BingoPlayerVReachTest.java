@@ -14,6 +14,7 @@ import com.foo.training.bingo.test.data.VerticalReachTestValue;
 
 /**
  * BaseBingoPlayer のテストクラス
+ * 垂直リーチが正しく判別されることを確認します。
  * @author
  *
  */
@@ -30,7 +31,7 @@ public class BingoPlayerVReachTest extends BaseBingoPlayerTest {
 			};
 
 	/**
-	 * 水平でリーチの場合に正しく叫ぶか否かをテストします。
+	 * 垂直でリーチの場合に正しく叫ぶか否かをテストします。
 	 */
 	@Theory
 	public void testHorizontalReachValues(String[][] vrvalue) {

@@ -1,5 +1,10 @@
 package com.foo.training.bingo.test.data;
 
+/**
+ * ナナメテスト用データクラス
+ * @author
+ *
+ */
 public class ObliqueTestValue {
 	public static String[][] getReachCard1() {
 		String[][] test = {

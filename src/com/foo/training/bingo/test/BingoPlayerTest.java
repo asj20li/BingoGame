@@ -14,6 +14,7 @@ import com.foo.training.bingo.test.data.TestValue;
 
 /**
  * BaseBingoPlayer のテストクラス
+ * 水平/垂直 のリーチ、Bingo 以外の機能をテストします。
  * @author
  *
  */
@@ -30,7 +31,7 @@ public class BingoPlayerTest extends BaseBingoPlayerTest {
 	}
 
 	/**
-	 * カードが null ではないことをテストします。
+	 * 取得したカードが null ではないことをテストします。
 	 */
 	@Test
 	public void testCard() {

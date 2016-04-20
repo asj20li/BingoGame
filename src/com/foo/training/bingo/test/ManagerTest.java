@@ -13,13 +13,17 @@ import com.foo.training.bingo.player.Manager;
 import com.foo.training.bingo.player.Player;
 import com.foo.training.bingo.test.data.TestValue;
 
-
+/**
+ * BingoManager 機能の単体テスト
+ * @author
+ *
+ */
 public class ManagerTest {
 
 	private ByteArrayOutputStream consoleOut = null;
 
 	/**
-	 * ここの試験で停止します。
+	 * ここの試験で JUnit が停止します。
 	 * Eclipse の「コンソール」ビューで有効なプレイヤーの名前を入力して Enter を押下してください。
 	 */
 	@Test
@@ -29,6 +33,9 @@ public class ManagerTest {
 		assertThat(playerName, notNullValue());
 	}
 
+	/**
+	 * プレイヤー追加メソッドのテスト
+	 */
 	@Test
 	public void testAddPlayer() {
 		Manager mngr = new Manager(TestValue.getEmptyCard());
@@ -36,6 +43,9 @@ public class ManagerTest {
 		assertThat(player, notNullValue());
 	}
 
+	/**
+	 * プレイヤー追加メソッド(パラメータつき)のテスト
+	 */
 	@Test
 	public void testAddPlayerWithParam() {
 		Manager mngr = new Manager(TestValue.getEmptyCard());
@@ -44,6 +54,9 @@ public class ManagerTest {
 		assertThat(result, is(true));
 	}
 
+	/**
+	 * プレイヤー取得メソッドのテスト
+	 */
 	@Test
 	public void testGetPlayer() {
 		Manager mngr = new Manager(TestValue.getEmptyCard());
@@ -52,6 +65,9 @@ public class ManagerTest {
 		assertThat(player, notNullValue());
 	}
 
+	/**
+	 * 全プレイヤーのカード表示メソッドのテスト
+	 */
 	@Test
 	public void testShowAllPlayerCard() {
 		consoleOut = new ByteArrayOutputStream();

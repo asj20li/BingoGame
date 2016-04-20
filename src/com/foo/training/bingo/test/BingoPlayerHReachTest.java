@@ -14,6 +14,7 @@ import com.foo.training.bingo.test.data.HorizontalReachTestValue;
 
 /**
  * BaseBingoPlayer のテストクラス
+ * 水平リーチが正しく判別されることを確認します。
  * @author
  *
  */

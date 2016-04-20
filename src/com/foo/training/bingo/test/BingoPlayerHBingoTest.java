@@ -14,6 +14,7 @@ import com.foo.training.bingo.test.data.HorizontalBingoTestValue;
 
 /**
  * BaseBingoPlayer のテストクラス
+ * 水平 Bingo が正しく判別されることを確認します。
  * @author
  *
  */

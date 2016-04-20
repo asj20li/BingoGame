@@ -1,5 +1,7 @@
 package com.foo.training.bingo.base;
 
+import com.foo.training.bingo.util.BingoConstant;
+
 /**
  * Bingoプレイヤー基底クラス
  * @author
@@ -18,8 +20,9 @@ public abstract class BaseBingoPlayer{
 
 	/**
 	 * コンストラクタ
-	 * @param name
-	 * @param card
+	 * 指定されたパラメータで自分のデータを設定します。
+	 * @param name プレイヤー名
+	 * @param card ビンゴカード
 	 */
 	public BaseBingoPlayer(String name, String[][] card) {
 		this.myName = name;
@@ -63,17 +66,17 @@ public abstract class BaseBingoPlayer{
 	 */
 	public boolean judgeBingo(String ballVal) {
 		replaceDone(ballVal);
-		boolean result = isBingoVertical() || isBingoHorizontal() || isBingoOblique();
-		if (result) {
+		boolean isBingo = isBingoVertical() || isBingoHorizontal() || isBingoOblique();
+		if (isBingo) {
 			shoutBingo();
 		}
-		if (!result && !isReached) {
+		if (!isBingo && !isReached) {
 			isReached = isReachVertical() || isReachHorizontal() || isReachOblique();
 			if (isReached) {
 				shoutReach();
 			}
 		}
-		return result;
+		return isBingo;
 	}
 
 	// --- getter ---

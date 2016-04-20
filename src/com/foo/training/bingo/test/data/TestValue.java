@@ -1,5 +1,10 @@
 package com.foo.training.bingo.test.data;
 
+/**
+ * テスト用データクラス
+ * @author
+ *
+ */
 public class TestValue {
 	public static String[][] getSampleCard() {
 		String[][] test = {

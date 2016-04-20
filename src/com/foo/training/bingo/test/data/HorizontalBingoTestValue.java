@@ -1,5 +1,10 @@
 package com.foo.training.bingo.test.data;
 
+/**
+ * 水平 Bingo テスト用データクラス
+ * @author
+ *
+ */
 public class HorizontalBingoTestValue {
 	public static String[][] getCard1() {
 		String[][] test = {

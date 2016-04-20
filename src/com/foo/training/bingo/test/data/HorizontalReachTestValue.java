@@ -1,5 +1,11 @@
 package com.foo.training.bingo.test.data;
 
+/**
+ * 水平リーチテスト用データクラス
+ * TODO テストデータが不足しています。不足分を補ってください。
+ * @author
+ *
+ */
 public class HorizontalReachTestValue {
 	public static String[][] getCard1() {
 		String[][] test = {
