@@ -13,7 +13,7 @@ public final class BingoConstant {
 	public static final String done = "xx";
 
 	/**
-	 * ビンゴの玉の最大値
+	 * ビンゴの玉の最大値 (25以上75以下に設定する)
 	 */
 	public static final int maxBallNumber = 75;
 
