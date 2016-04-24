@@ -15,8 +15,10 @@ public class BingoBall {
 
 	// コンストラクタ
 	public BingoBall() {
-		// ボールをListに詰めます
-		// Listをシャッフルします
+		for(int i = 0; i < BingoConstant.maxBallNumber; i++)
+			this.ballList.add(String.valueOf(i + 1));
+		// シャッフル
+		Collections.shuffle(this.ballList);
 	}
 
 	/**
@@ -26,5 +28,8 @@ public class BingoBall {
 	 * @return
 	 */
 	public String getBall() {
+		String ball = this.ballList.get(0);
+		this.ballList.remove(0);
+		return ball;
 	}
 }

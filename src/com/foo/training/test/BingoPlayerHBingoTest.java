@@ -24,6 +24,11 @@ public class BingoPlayerHBingoTest extends BaseBingoPlayerTest {
 
 	@DataPoints
 	public static String[][][] HBVALUES = {
+			HorizontalBingoTestValue.getCard1(),
+			HorizontalBingoTestValue.getCard2(),
+			HorizontalBingoTestValue.getCard3(),
+			HorizontalBingoTestValue.getCard4(),
+			HorizontalBingoTestValue.getCard5()
 			};
 
 	/**
@@ -31,6 +36,9 @@ public class BingoPlayerHBingoTest extends BaseBingoPlayerTest {
 	 */
 	@Theory
 	public void testHorizontalBingoValues(String[][] hbvalue) {
+		Player player = new Player("test", hbvalue);
+		player.judgeBingo(testBallValue);
+		assertThat(consoleOut.toString(), is(bingoShout));
 	}
 
 }

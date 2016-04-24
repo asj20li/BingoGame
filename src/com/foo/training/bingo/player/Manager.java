@@ -25,44 +25,97 @@ public class Manager extends BaseBingoPlayer implements BingoManager {
 	private BingoBall ballMachine = new BingoBall();
 
 	public Manager() {
+		super("Manager", BingoCard.getCard());
+		playerList.add(this);
 	}
 
 	public Manager(String[][] card) {
+		myName = "Manager";
+		myCard = card;
+		playerList.add(this);
 	}
 
 	@Override
 	public void progressGame() {
-		// 事前にゲームを進めます
-		// 終わらなかったらユーザ入力と共に進めます
+		boolean endOfGame = false;
+		// 事前にゲームを進めます。
+		endOfGame = executeGame(false, BingoConstant.preGameCount);
+		// 終わらなかったらユーザ入力と共に進めます。
+		if (endOfGame) {
+			return;
+		}
+		else {
+			endOfGame = executeGame(true, BingoConstant.gameCount);
+		}
 		// 引き分けの場合
+		if (!endOfGame) {
+			System.out.println("引き分けです！惜しかったですね。。。");
+		}
 	}
 
 	@Override
 	public BaseBingoPlayer getPlayer(String name) {
+		Optional<BaseBingoPlayer> opPlayer = playerList.stream().filter(arg -> arg.getMyName().equals(name)).findFirst();
+		if (opPlayer.isPresent()) {
+			return opPlayer.get();
+		}
+		else {return null;}
 	}
 
 	@Override
 	public boolean addPlayer(BaseBingoPlayer bingoPlayer) {
+		if (bingoPlayer != null) {
+			return playerList.add(bingoPlayer);
+		}
+		return false;
 	}
 
 	@Override
 	public BaseBingoPlayer addPlayer(String playerName) {
+		String[][] card = BingoCard.getCard();
+		BaseBingoPlayer player = new Player(playerName, card);
+		playerList.add(player);
+		return player;
 	}
 
 	@Override
 	public void shoutReach() {
+		System.out.println("Reach!!");
 	}
 
 	@Override
 	public void shoutBingo() {
+		System.out.println("WOW, BINGO!!");
 	}
 
 	@Override
 	public void showAllPlayerCard() {
+		for(BaseBingoPlayer player : playerList) {
+			player.showMyCard();
+		}
 	}
 
 	@Override
 	public String askPlayerName() {
+		System.out.println("名前を入力してください。");
+		String name = "";
+		for(;;) {
+			try {
+				name = getInputString();
+			} catch (IOException e) {
+//				System.out.println("例外が発生しました。[" + e.getMessage() + "]");
+				System.out.println("名前を John に設定します。");
+				name = "John";
+			}
+			if(name.isEmpty() || name.matches("^ +$")){
+				System.out.println("名前に空白は使えません。再度入力してください。");
+			}
+			else {
+				break;
+			}
+		}
+		System.out.println("[" + name + "] さんですね。");
+		return name;
 	}
 
 	// --- private ---
@@ -72,6 +125,10 @@ public class Manager extends BaseBingoPlayer implements BingoManager {
 	 * @throws IOException
 	 */
 	private String getInputString() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String val = "";
+		val = br.readLine();
+		return val;
 	}
 
 	/**
@@ -79,6 +136,21 @@ public class Manager extends BaseBingoPlayer implements BingoManager {
 	 * 例外が発生した場合は、再度入力を促してください。
 	 */
 	private void waitGameProgress() {
+		System.out.println("y キーを入力してゲームを進めてください。");
+		String name = "";
+		for(;;) {
+			try {
+				name = getInputString();
+			} catch (IOException e) {
+				System.out.println("例外が発生しました。[" + e.getMessage() + "]");
+			}
+			if(!name.equals("y")){
+				System.out.println("「y」キー以外の入力はできません。y キーを入力してください。");
+			}
+			else {
+				break;
+			}
+		}
 	}
 
 	/**
@@ -89,8 +161,28 @@ public class Manager extends BaseBingoPlayer implements BingoManager {
 	 * @return
 	 */
 	private boolean executeGame(boolean execWait, int gameCount) {
-		// ボールマシンを回して数字文字列を取得します
-		// 全 Player に通知し Bingo か否かチェックします
-		// 全 Player のカードの状態を表示します
+		boolean endOfGame = false;
+		for (int count = 0; count < gameCount; count++) {
+			if (execWait) {
+				waitGameProgress();
+			}
+			System.out.println("[" + (count + 1) + "] 回目のボール取り出しです。");
+			// ボールマシンを回して数字文字列を取得します
+			String ballVal = ballMachine.getBall();
+			System.out.println("出てきた番号は [" + ballVal + "] となります！");
+			// 全 Player に通知し Bingo か否かチェックします
+			for (BaseBingoPlayer player : playerList) {
+				if (player.judgeBingo(ballVal)) {
+					System.out.println("ゲーム終了！" + System.lineSeparator() + "勝者は [" + player.getMyName() + "] さんです。");
+					endOfGame = true;
+				}
+			}
+			// 全 Player のカードの状態を表示します。
+			showAllPlayerCard();
+			if (endOfGame) {
+				break;
+			}
+		}
+		return endOfGame;
 	}
 }
