@@ -27,6 +27,8 @@ public class BingoPlayerTest extends BaseBingoPlayerTest {
 	 */
 	@Test
 	public void testName() {
+		Player player = new Player("test", TestValue.getEmptyCard());
+		assertThat(player.getMyName(), is("test"));
 	}
 
 	/**
@@ -34,6 +36,8 @@ public class BingoPlayerTest extends BaseBingoPlayerTest {
 	 */
 	@Test
 	public void testCard() {
+		Player player = new Player("test", TestValue.getEmptyCard());
+		assertThat(player.getMyCard(), notNullValue());
 	}
 
 	/**
@@ -41,6 +45,9 @@ public class BingoPlayerTest extends BaseBingoPlayerTest {
 	 */
 	@Test
 	public void testReachShout() {
+		Player player = new Player("test", TestValue.getEmptyCard());
+		player.shoutReach();
+		assertThat(consoleOut.toString(), is(reachShout));
 	}
 
 	/**
@@ -48,6 +55,9 @@ public class BingoPlayerTest extends BaseBingoPlayerTest {
 	 */
 	@Test
 	public void testBingoShout() {
+		Player player = new Player("test", TestValue.getEmptyCard());
+		player.shoutBingo();
+		assertThat(consoleOut.toString(), is(bingoShout));
 	}
 
 	/**
@@ -55,6 +65,9 @@ public class BingoPlayerTest extends BaseBingoPlayerTest {
 	 */
 	@Test
 	public void testObliqueReach1() {
+		Player player = new Player("test", ObliqueTestValue.getReachCard1());
+		player.judgeBingo(testBallValue);
+		assertThat(consoleOut.toString(), is(reachShout));
 	}
 
 	/**
@@ -62,6 +75,9 @@ public class BingoPlayerTest extends BaseBingoPlayerTest {
 	 */
 	@Test
 	public void testObliqueBingo1() {
+		Player player = new Player("test", ObliqueTestValue.getBingoCard1());
+		player.judgeBingo(testBallValue);
+		assertThat(consoleOut.toString(), is(bingoShout));
 	}
 
 	/**
@@ -69,6 +85,9 @@ public class BingoPlayerTest extends BaseBingoPlayerTest {
 	 */
 	@Test
 	public void testObliqueReach2() {
+		Player player = new Player("test", ObliqueTestValue.getReachCard2());
+		player.judgeBingo(testBallValue);
+		assertThat(consoleOut.toString(), is(reachShout));
 	}
 
 	/**
@@ -76,6 +95,9 @@ public class BingoPlayerTest extends BaseBingoPlayerTest {
 	 */
 	@Test
 	public void testObliqueBingo2() {
+		Player player = new Player("test", ObliqueTestValue.getBingoCard2());
+		player.judgeBingo(testBallValue);
+		assertThat(consoleOut.toString(), is(bingoShout));
 	}
 
 }

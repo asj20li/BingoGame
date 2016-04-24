@@ -23,6 +23,11 @@ public class BingoPlayerVReachTest extends BaseBingoPlayerTest {
 
 	@DataPoints
 	public static String[][][] VRVALUES = {
+			VerticalReachTestValue.getCard1(),
+			VerticalReachTestValue.getCard2(),
+			VerticalReachTestValue.getCard3(),
+			VerticalReachTestValue.getCard4(),
+			VerticalReachTestValue.getCard5()
 			};
 
 	/**
@@ -30,5 +35,8 @@ public class BingoPlayerVReachTest extends BaseBingoPlayerTest {
 	 */
 	@Theory
 	public void testHorizontalReachValues(String[][] vrvalue) {
+		Player player = new Player("test", vrvalue);
+		player.judgeBingo(testBallValue);
+		assertThat(consoleOut.toString(), is(reachShout));
 	}
 }
