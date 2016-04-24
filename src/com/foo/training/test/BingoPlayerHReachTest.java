@@ -24,11 +24,6 @@ public class BingoPlayerHReachTest extends BaseBingoPlayerTest {
 
 	@DataPoints
 	public static String[][][] HRVALUES = {
-			HorizontalReachTestValue.getCard1(),
-			HorizontalReachTestValue.getCard2(),
-			HorizontalReachTestValue.getCard3(),
-			HorizontalReachTestValue.getCard4(),
-			HorizontalReachTestValue.getCard5()
 			};
 
 	/**
@@ -36,8 +31,5 @@ public class BingoPlayerHReachTest extends BaseBingoPlayerTest {
 	 */
 	@Theory
 	public void testHorizontalReachValues(String[][] hrvalue) {
-		Player player = new Player("test", hrvalue);
-		player.judgeBingo(testBallValue);
-		assertThat(consoleOut.toString(), is(reachShout));
 	}
 }

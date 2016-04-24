@@ -34,8 +34,6 @@ public abstract class BaseBingoPlayer{
 	 * @param card ビンゴカード
 	 */
 	public BaseBingoPlayer(String name, String[][] card) {
-		this.myName = name;
-		this.myCard = card;
 	}
 
 	/**
@@ -50,15 +48,6 @@ public abstract class BaseBingoPlayer{
 		  8  26  32  58  74
 	 */
 	public void showMyCard() {
-		System.out.println("----- " + myName + " -----");
-		for (int i = 0; i < BingoConstant.matrixSize; i++) {
-			for (int j = 0; j < BingoConstant.matrixSize; j++) {
-				String val = myCard[i][j].length() == 1 ? " " + myCard[i][j] : myCard[i][j];
-				System.out.print(" " + val + " ");
-			}
-			System.out.println("");
-		}
-		System.out.println("");
 	}
 
 	/**
@@ -83,18 +72,6 @@ public abstract class BaseBingoPlayer{
 	 * @return
 	 */
 	public boolean judgeBingo(String ballVal) {
-		replaceDone(ballVal);
-		boolean isBingo = isBingoVertical() || isBingoHorizontal() || isBingoOblique();
-		if (isBingo) {
-			shoutBingo();
-		}
-		if (!isBingo && !isReached) {
-			isReached = isReachVertical() || isReachHorizontal() || isReachOblique();
-			if (isReached) {
-				shoutReach();
-			}
-		}
-		return isBingo;
 	}
 
 	// --- getter ---
@@ -113,13 +90,6 @@ public abstract class BaseBingoPlayer{
 	 * @param ボール文字列
 	 */
 	private void replaceDone(String ballVal) {
-		for (int i = 0; i < BingoConstant.matrixSize; i++) {
-			for (int j = 0; j < BingoConstant.matrixSize; j++) {
-				if (myCard[i][j].equals(ballVal)) {
-					myCard[i][j] = BingoConstant.done;
-				}
-			}
-		}
 	}
 
 	/**
@@ -127,19 +97,6 @@ public abstract class BaseBingoPlayer{
 	 * @return ビンゴの場合は true、そうでない場合は false
 	 */
 	private boolean isBingoVertical() {
-		for (int i = 0; i < BingoConstant.matrixSize; i++) {
-			boolean result = true;
-			for (int j = 0; j < BingoConstant.matrixSize; j++) {
-				result = result && myCard[j][i].equals(BingoConstant.done);
-				if (!result) {
-					break;
-				}
-			}
-			if (result) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**
@@ -147,16 +104,6 @@ public abstract class BaseBingoPlayer{
 	 * @return リーチの場合は true、そうでない場合は false
 	 */
 	private boolean isReachVertical() {
-		for (int i = 0; i < BingoConstant.matrixSize; i++) {
-			int count = 0;
-			for (int j = 0; j < BingoConstant.matrixSize; j++) {
-				if (myCard[j][i].equals(BingoConstant.done)) {count++;}
-			}
-			if (count == BingoConstant.matrixSize - 1) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**
@@ -164,19 +111,6 @@ public abstract class BaseBingoPlayer{
 	 * @return ビンゴの場合は true、そうでない場合は false
 	 */
 	private boolean isBingoHorizontal() {
-		for (int i = 0; i < BingoConstant.matrixSize; i++) {
-			boolean result = true;
-			for (int j = 0; j < BingoConstant.matrixSize; j++) {
-				result = result && myCard[i][j].equals(BingoConstant.done);
-				if (!result) {
-					break;
-				}
-			}
-			if (result) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**
@@ -184,16 +118,6 @@ public abstract class BaseBingoPlayer{
 	 * @return リーチの場合は true、そうでない場合は false
 	 */
 	private boolean isReachHorizontal() {
-		for (int i = 0; i < BingoConstant.matrixSize; i++) {
-			int count = 0;
-			for (int j = 0; j < BingoConstant.matrixSize; j++) {
-				if (myCard[i][j].equals(BingoConstant.done)) {count++;}
-			}
-			if (count == BingoConstant.matrixSize - 1) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**
@@ -202,27 +126,6 @@ public abstract class BaseBingoPlayer{
 	 * @return ビンゴの場合は true、そうでない場合は false
 	 */
 	private boolean isBingoOblique() {
-		boolean result = true;
-		for (int i = 0; i < BingoConstant.matrixSize; i++) {
-			result = result && myCard[i][i].equals(BingoConstant.done);
-			if (!result) {
-				break;
-			}
-		}
-		if (result) {
-			return true;
-		}
-		result = true;
-		for (int i = BingoConstant.matrixSize - 1; i >= 0; i--) {
-			result = result && myCard[i][(BingoConstant.matrixSize - 1) - i].equals(BingoConstant.done);
-			if (!result) {
-				break;
-			}
-		}
-		if (result) {
-			return true;
-		}
-		return false;
 	}
 
 	/**
@@ -231,20 +134,5 @@ public abstract class BaseBingoPlayer{
 	 * @return リーチの場合は true、そうでない場合は false
 	 */
 	private boolean isReachOblique() {
-		int count = 0;
-		for (int i = 0; i < BingoConstant.matrixSize; i++) {
-			if(myCard[i][i].equals(BingoConstant.done)){count++;}
-		}
-		if (count == BingoConstant.matrixSize - 1) {
-			return true;
-		}
-		count = 0;
-		for (int i = 0; i < BingoConstant.matrixSize; i++) {
-			if (myCard[i][(BingoConstant.matrixSize - 1) - i].equals(BingoConstant.done)) {count++;}
-		}
-		if (count == BingoConstant.matrixSize - 1) {
-			return true;
-		}
-		return false;
 	}
 }
