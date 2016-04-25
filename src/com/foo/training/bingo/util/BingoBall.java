@@ -15,8 +15,14 @@ public class BingoBall {
 
 	// コンストラクタ
 	public BingoBall() {
-		// ボールをListに詰めます
-		// Listをシャッフルします
+		// ballListにボールを詰めます
+
+
+
+		// ballListをシャッフルします
+
+
+
 	}
 
 	/**

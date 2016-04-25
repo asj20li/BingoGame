@@ -34,7 +34,14 @@ public class BingoCard {
 	 * @return
 	 */
 	public static String[][] getCard() {
-		// 行と列を入れ替え
+		// 2次元配列に値を入れます
+
+
+
+		// 行と列を入れ替えます
+
+
+
 	}
 
 	// --- private ---

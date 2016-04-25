@@ -33,8 +33,17 @@ public class Manager extends BaseBingoPlayer implements BingoManager {
 	@Override
 	public void progressGame() {
 		// 事前にゲームを進めます
+
+
+
 		// 終わらなかったらユーザ入力と共に進めます
+
+
+
 		// 引き分けの場合
+
+
+
 	}
 
 	@Override
@@ -90,7 +99,16 @@ public class Manager extends BaseBingoPlayer implements BingoManager {
 	 */
 	private boolean executeGame(boolean execWait, int gameCount) {
 		// ボールマシンを回して数字文字列を取得します
+
+
+
 		// 全 Player に通知し Bingo か否かチェックします
+
+
+
 		// 全 Player のカードの状態を表示します
+
+
+
 	}
 }
